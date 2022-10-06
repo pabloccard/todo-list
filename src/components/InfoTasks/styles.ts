@@ -12,6 +12,7 @@ export const CreatedTasks = styled.div`
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  user-select: none;
 
   span:first-child {
     color: ${(props) => props.theme.blue};

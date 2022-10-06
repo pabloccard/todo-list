@@ -20,6 +20,7 @@ export function TaskInput({ addTask }: InputTasksProps) {
     <FormContainer onSubmit={handleSubmit}>
       <input
         type="text"
+        placeholder="Adicione uma nova tarefa"
         onChange={(event) => setTextInput(event.target.value)}
         value={textInput}
       />

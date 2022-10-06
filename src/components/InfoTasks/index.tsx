@@ -7,6 +7,13 @@ interface InfoTasksProps {
 export function InfoTasks({ tasks }: InfoTasksProps) {
   const createdTasks = tasks.length
 
+  const completedTasks = tasks.reduce((completed, task) => {
+    if (task.done) {
+      return completed + 1
+    }
+    return completed
+  }, 0)
+
   return (
     <InfoContainer>
       <CreatedTasks>
@@ -16,7 +23,7 @@ export function InfoTasks({ tasks }: InfoTasksProps) {
 
       <CompletedTasks>
         <span>Concluídas</span>
-        <span>0</span>
+        <span>{completedTasks}</span>
       </CompletedTasks>
     </InfoContainer>
   )

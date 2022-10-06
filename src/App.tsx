@@ -4,7 +4,7 @@ import { GlobalStyles } from './styles/global'
 
 import { v4 as uuidV4 } from 'uuid'
 import { AnimatePresence } from 'framer-motion'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { Wrapper } from './styles/wrapper'
 import { Header } from './components/Header'
@@ -23,6 +23,18 @@ export function App() {
   const [tasks, setTasks] = useState<ITask[]>([])
 
   const anyTasksCreated = tasks.length
+
+  useEffect(() => {
+    const tasks = localStorage.getItem('tasks')
+
+    if (tasks !== '[]') {
+      setTasks(JSON.parse(tasks || '[]'))
+    }
+  }, [])
+
+  useEffect(() => {
+    localStorage.setItem('tasks', JSON.stringify(tasks))
+  }, [tasks])
 
   function addTask(taskText: string) {
     setTasks((state) => {

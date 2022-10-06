@@ -15,6 +15,11 @@ export const FormContainer = styled.form`
     border: 1px solid ${(props) => props.theme['gray-700']};
     border-radius: 8px;
     padding: 1rem;
+    color: ${(props) => props.theme['gray-200']};
+
+    &::placeholder {
+      color: ${(props) => props.theme['gray-300']};
+    }
   }
 
   button {
@@ -29,5 +34,17 @@ export const FormContainer = styled.form`
     color: ${(props) => props.theme['gray-100']};
     font-size: 0.875rem;
     font-weight: bold;
+    cursor: pointer;
+
+    transition: background-color 0.2s, filter 0.2s;
+
+    &:enabled:hover {
+      background: ${(props) => props.theme.blue};
+    }
+
+    &:disabled {
+      filter: brightness(0.7);
+      cursor: not-allowed;
+    }
   }
 `
