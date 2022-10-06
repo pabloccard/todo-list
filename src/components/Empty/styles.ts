@@ -1,6 +1,9 @@
-import styled from 'styled-components'
+import styled, { keyframes } from 'styled-components'
+import { fadeIn } from 'react-animations'
+const animation = keyframes`${fadeIn}`
 
 export const EmptyContainer = styled.main`
+  animation: 0.3s ${animation};
   width: 100%;
   margin-top: 1.5rem;
 

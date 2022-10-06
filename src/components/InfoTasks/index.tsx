@@ -1,11 +1,17 @@
+import { ITask } from '../../App'
 import { CompletedTasks, CreatedTasks, InfoContainer } from './styles'
 
-export function InfoTasks() {
+interface InfoTasksProps {
+  tasks: ITask[]
+}
+export function InfoTasks({ tasks }: InfoTasksProps) {
+  const createdTasks = tasks.length
+
   return (
     <InfoContainer>
       <CreatedTasks>
         <span>Tarefas criadas</span>
-        <span>0</span>
+        <span>{createdTasks}</span>
       </CreatedTasks>
 
       <CompletedTasks>
