@@ -1,0 +1,94 @@
+.taskContainer {
+    display: flex;
+    align-items: center;
+
+    width: 100%;
+    padding: 1rem;
+    margin-top: 1.5rem;
+
+    background: var(--gray-500);
+    border: 1px solid var(--gray-400);
+    box-shadow: 0px 2px 8px rgba(0, 0, 0, 0.06);
+    border-radius: 8px;
+}
+
+.checkboxRoot {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-shrink: 0;
+
+    width: 1rem;
+    height: 1rem;
+    margin-right: 0.75rem;
+
+    background: transparent;
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    
+    line-height: 0;
+    cursor: pointer;
+}
+
+.checkboxRoot[data-state='checked'] {
+    background: var(--purple-dark);
+    border-color: var(--purple-dark);
+}
+
+.checkboxRoot[data-state='checked']:hover {
+    background: var(--purple);
+    border-color: var(--purple);
+
+    transition: background-color 0.2s ease-in, border-color 0.2s ease-in;
+}
+
+.checkboxRoot[data-state='unchecked']:hover {
+    background: hsl(239, 53%, 59%, 0.2);
+    border-color: var(--purple-dark);
+
+    transition: background-color 0.2s ease-in, border-color 0.2s ease-in;
+}
+
+.checkboxRoot > svg {
+    color: var(--gray-100);
+}
+
+.content {
+    color: var(--gray-100);
+    line-height: 1.6;
+    font-size: 0.875rem;
+
+    overflow: hidden;
+    text-overflow: ellipsis;
+
+    transition: color 0.3s;
+}
+
+.taskContainer button[data-state='checked']~p {
+    text-decoration: line-through;
+    color: var(--gray-300);
+}
+
+.deleteButton {
+    all: unset;
+
+    margin-left: auto;
+    padding: 0.2rem;
+    
+    border-radius: 4px;
+    line-height: 0;
+    cursor: pointer;
+}
+
+.deleteButton:hover {
+    background: var(--gray-400);
+    transition: color 0.2s ease-in, background-color 0.2s ease-in;
+}
+
+.deleteButton:hover > svg {
+    color: var(--danger);
+}
+
+.deleteButton > svg {
+    color: var(--gray-300);
+}

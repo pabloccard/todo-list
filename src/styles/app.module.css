@@ -18,3 +18,22 @@
     display: block;
     margin: 4.5rem auto 0;
 }
+
+.empty {
+    padding: 4rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1rem;
+}
+
+.empty img {
+    width: fit-content;
+}
+
+.empty p {
+    text-align: center;
+    color: var(--gray-300);
+    line-height: 22px;
+}

@@ -1,0 +1,36 @@
+.taskCountContainer {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 4rem;
+
+    width: 100%;
+}
+
+.taskCountContainer > div {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.info {
+    font-size: 0.875rem;
+    line-height: 17px;
+}
+
+.created {
+    color: var(--blue);
+}
+
+.finished  {
+    color: var(--purple);
+}
+
+.count {
+    background: var(--gray-400);
+    border-radius: 999px;
+    padding: 2px 8px;
+
+    color: var(--gray-200);
+    font-weight: bold;
+    font-size: 0.75rem;
+}
