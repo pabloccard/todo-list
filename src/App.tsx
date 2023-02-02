@@ -7,6 +7,7 @@ import { TaskCount } from './components/TaskCount'
 import { Task } from './components/Task'
 import { useState } from 'react'
 import { v4 as uuid } from 'uuid'
+import { AnimatePresence } from 'framer-motion'
 
 interface Tasks {
   id: string
@@ -63,14 +64,16 @@ export function App() {
 
       {tasks.length ? (
         <ul className={styles.tasksContainer}>
-          {tasks.map((task) => (
-            <Task
-              key={task.id}
-              task={task}
-              completeTask={completeTask}
-              deleteTask={deleteTask}
-            />
-          ))}
+          <AnimatePresence>
+            {tasks.map((task) => (
+              <Task
+                key={task.id}
+                task={task}
+                completeTask={completeTask}
+                deleteTask={deleteTask}
+              />
+            ))}
+          </AnimatePresence>
         </ul>
       ) : (
         <div className={styles.empty}>

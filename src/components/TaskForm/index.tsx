@@ -1,5 +1,6 @@
 import { FormEvent, useState } from 'react'
 import { BsPencilSquare } from 'react-icons/bs'
+import { motion } from 'framer-motion'
 import styles from './styles.module.css'
 
 interface TaskFormProps {
@@ -22,10 +23,11 @@ export const TaskForm = ({ addTask }: TaskFormProps) => {
         placeholder="Adicione uma nova tarefa"
         onChange={(e) => setText(e.target.value)}
         value={text}
+        maxLength={40}
       />
-      <button type="submit">
+      <motion.button type="submit" disabled={!text} whileTap={{ scale: 0.95 }}>
         Criar <BsPencilSquare />
-      </button>
+      </motion.button>
     </form>
   )
 }

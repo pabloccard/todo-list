@@ -1,5 +1,6 @@
 import { FiTrash2 } from 'react-icons/fi'
 import { BsCheck } from 'react-icons/bs'
+import { motion } from 'framer-motion'
 import * as Checkbox from '@radix-ui/react-checkbox'
 import styles from './styles.module.css'
 
@@ -18,7 +19,12 @@ export const Task = ({ task, completeTask, deleteTask }: TaskProps) => {
     deleteTask(task.id)
   }
   return (
-    <li className={styles.taskContainer}>
+    <motion.li
+      className={styles.taskContainer}
+      initial={{ opacity: 0 }}
+      animate={{ opacity: 1 }}
+      exit={{ opacity: 0 }}
+    >
       <Checkbox.Root
         className={styles.checkboxRoot}
         onCheckedChange={() => completeTask(task.id)}
@@ -32,6 +38,6 @@ export const Task = ({ task, completeTask, deleteTask }: TaskProps) => {
       <button className={styles.deleteButton} onClick={handleDeleteTask}>
         <FiTrash2 />
       </button>
-    </li>
+    </motion.li>
   )
 }
